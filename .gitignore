@@ -1,5 +1,5 @@
 *pycache*
 *.log*
 *.ipynb*
-config/config.py
+Config/config.py
 data/*
