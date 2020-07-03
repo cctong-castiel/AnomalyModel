@@ -8,7 +8,8 @@ from sklearn.ensemble import IsolationForest
 from scripts.func import df_preprocess
 from handler.awshandler import *
 from handler.ziphelper import *
-from config import config
+#import Config.config
+from Config import config
 from flask import Flask, request
 
 # s3 config

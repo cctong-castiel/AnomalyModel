@@ -1,0 +1,7 @@
+pandas==1.0.4
+Flask==1.1.2
+numpy==1.18.5
+boto3==1.13.24
+dask==2.19.0
+scikit_learn==0.23.1
+
