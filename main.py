@@ -8,7 +8,7 @@ from sklearn.ensemble import IsolationForest
 from scripts.func import df_preprocess
 from handler.awshandler import *
 from handler.ziphelper import *
-from Config.config import *
+import config
 from flask import Flask, request
 
 # s3 config
@@ -31,7 +31,8 @@ def run():
         Input: json_link
         Output: model file and upload to S3"""
         # post request
-        json_link = str(request.get_json(force=True)['json_link'])
+        ##json_link = str(request.get_json(force=True)['json_link'])
+        array = request.get_json(force=True)['run']
 
         # variables
         logging.info("get variables")
@@ -52,11 +53,11 @@ def run():
             logging.info(os.path.exists(mdir))'''
 
         # wget json link
-        logging.info("get json link")
-        logging.info(f"wget -P {mdir}/ {json_link}")
-        os.system(f"wget -P {mdir}/ {json_link}")
-        with open(os.path.join(mdir,model_file_name+'.json'), 'r') as json_f:
-            array = json.load(json_f)
+        ##logging.info("get json link")
+        ##logging.info(f"wget -P {mdir}/ {json_link}")
+        ##os.system(f"wget -P {mdir}/ {json_link}")
+        ##with open(os.path.join(mdir,model_file_name+'.json'), 'r') as json_f:
+        ##    array = json.load(json_f)
 
         # preprocessing
         df = pd.DataFrame(array['array_text'])
