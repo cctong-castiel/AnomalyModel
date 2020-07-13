@@ -3,6 +3,7 @@ import pandas as pd
 import dask.dataframe as dd
 import json 
 import os 
+import shutil
 from sklearn.preprocessing import StandardScaler
 from sklearn.ensemble import IsolationForest
 from scripts.func import df_preprocess
@@ -31,8 +32,7 @@ def run():
         Input: json_link
         Output: model file and upload to S3"""
         # post request
-        ##json_link = str(request.get_json(force=True)['json_link'])
-        array = request.get_json(force=True)['run']
+        json_link = str(request.get_json(force=True)['json_link'])
 
         # variables
         logging.info("get variables")
@@ -41,7 +41,8 @@ def run():
         logging.info(f"mdir is: {mdir}")
         hashword = None
         zip_type = ".tar.gz"
-        '''
+
+
         # check if mdir exist
         if os.path.exists(mdir):
             shutil.rmtree(mdir)
@@ -50,14 +51,14 @@ def run():
         else: 
             os.makedirs(mdir)
             logging.info(f"mdir path in else path: {mdir}")
-            logging.info(os.path.exists(mdir))'''
+            logging.info(os.path.exists(mdir))
 
         # wget json link
-        ##logging.info("get json link")
-        ##logging.info(f"wget -P {mdir}/ {json_link}")
-        ##os.system(f"wget -P {mdir}/ {json_link}")
-        ##with open(os.path.join(mdir,model_file_name+'.json'), 'r') as json_f:
-        ##    array = json.load(json_f)
+        logging.info("get json link")
+        logging.info(f"wget -P {mdir}/ {json_link}")
+        os.system(f"wget -P {mdir}/ {json_link}")
+        with open(os.path.join(mdir,model_file_name+'.json'), 'r') as json_f:
+            array = json.load(json_f)
 
         # preprocessing
         df = pd.DataFrame(array['array_text'])
