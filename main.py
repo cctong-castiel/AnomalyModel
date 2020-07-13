@@ -25,7 +25,7 @@ logger = logging.getLogger(__name__)
 logging.basicConfig(filename="train.log", filemode='a', level=logging.DEBUG,
                     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 
-@app.route("/train", methods=['POST'])
+@app.route("/pipe", methods=['POST'])
 def run():
     try:
         """Train Anomaly model
