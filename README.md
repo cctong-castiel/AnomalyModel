@@ -11,3 +11,4 @@
 return:
   - a dictionary of records which is anomal
   
+# AnomalyModel
