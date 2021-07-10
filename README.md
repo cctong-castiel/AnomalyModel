@@ -30,4 +30,17 @@
 
 return:
 - an array of json with the data which is detected as anomal. 
- 
+- example of return json
+```
+{
+  "array_text": [
+    {
+      "comment_count": 200,
+      "share_count": 200,
+      "reaction_like": 200,
+      "post_timestamp": "2020-06-06",
+      "period": "2020-06-06"
+    }
+  ]
+}
+```
