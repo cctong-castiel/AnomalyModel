@@ -31,7 +31,9 @@
 return:
 - an array of json with the data which is detected as anomal. 
 - example of return json
-```
+```{
+	"json_link": "https://lenx-training-data.s3.amazonaws.com/sentiment/anomaly_data.json"
+}
 {
   "array_text": [
     {
@@ -42,5 +44,30 @@ return:
       "period": "2020-06-06"
     }
   ]
+}
+```
+
+### start a docker host server
+prerequisites:
+- install docker desktop
+
+start a docker host server
+- in command line, type 
+```
+docker-compose up --build
+```
+- it needs time to start a docker server. Please wait patiently.
+
+Testing api
+- /ping (GET)
+```
+url: http://0.0.0.0:8964/ping
+```
+- /pipe (POST)
+```
+url: http://0.0.0.0:8964/pipe
+body: 
+{
+	"json_link": "https://anomaly-castiel.s3.us-west-2.amazonaws.com/anomaly_data.json"
 }
 ```
