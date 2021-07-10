@@ -71,3 +71,9 @@ body:
 	"json_link": "https://anomaly-castiel.s3.us-west-2.amazonaws.com/anomaly_data.json"
 }
 ```
+
+Stop a docker host server
+- in command line, type
+```
+docker-compose down
+```
