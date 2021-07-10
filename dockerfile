@@ -7,6 +7,6 @@ ADD . /app
 RUN python3 -m pip install pip --upgrade
 RUN python3 -m pip install -r requirements.txt
 
-EXPOSE 721
+EXPOSE 8964
 
 CMD gunicorn -c ./gunicorn.conf main:app

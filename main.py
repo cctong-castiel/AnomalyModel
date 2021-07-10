@@ -1,6 +1,5 @@
 import numpy as np
 import pandas as pd
-import dask.dataframe as dd
 import json
 import os
 import shutil
@@ -16,6 +15,10 @@ app = Flask(__name__)
 logger = logging.getLogger(__name__)
 logging.basicConfig(filename="train.log", filemode='a', level=logging.DEBUG,
                     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+
+@app.route("/ping", methods=["GET"])
+def ping():
+    return "pong"
 
 @app.route("/pipe", methods=['POST'])
 def pipe():

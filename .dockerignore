@@ -2,7 +2,6 @@
 *.ipynb*
 *.git
 *.log*
-AnomalyModel/**
 config/config.py 
 data/*
 README.md
